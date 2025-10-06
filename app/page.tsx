@@ -202,8 +202,51 @@ export default function Portfolio() {
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-neutral-950/70 backdrop-blur supports-[backdrop-filter]:bg-neutral-950/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
-            <a href="#" className="text-2xl font-bold tracking-tight">
-              <span className="text-sky-600">Portfolio</span>
+            <a
+              href="#"
+              className="inline-flex items-center gap-2 text-2xl font-bold tracking-tight"
+              aria-label="Portfolio Home"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 280 80"
+                className="h-8 w-auto block"
+                preserveAspectRatio="xMidYMid meet"
+                role="img"
+                aria-hidden="true"
+              >
+                <text
+                  x="12"
+                  y="50%"
+                  dominantBaseline="middle"
+                  fontFamily="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, monospace"
+                  fontSize="42"
+                  fill="#38bdf8"
+                >
+                  &lt;
+                </text>
+
+                <text
+                  x="58"
+                  y="50%"
+                  dominantBaseline="middle"
+                  fontFamily="Poppins, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
+                  fontSize="42"
+                  fill="#ffffff"
+                >
+                  Foad.Dev
+                </text>
+                <text
+                  x="248"
+                  y="50%"
+                  dominantBaseline="middle"
+                  fontFamily="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, monospace"
+                  fontSize="42"
+                  fill="#38bdf8"
+                >
+                  /&gt;
+                </text>
+              </svg>
             </a>
 
             {/* Desktop Navigation */}
@@ -262,68 +305,83 @@ export default function Portfolio() {
       </header>
 
       {/* Hero Section */}
-      <section className="scroll-mt-24 min-h-[90vh] pt-24 relative overflow-hidden flex items-center">
-        <BackgroundLines className="flex items-center justify-center w-full flex-col px-4">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-16">
-              {/* Text */}
-              <div className="w-full lg:w-1/2 text-center lg:text-left" data-aos="fade-right">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
-                  Hi, I'm <span className="text-sky-700">Foad Jalali</span>
-                </h1>
-                <h2 className="text-lg md:text-xl lg:text-2xl text-white/80 mb-6">Software Engineer</h2>
-                <p className="text-white/80 text-base md:text-lg max-w-xl mx-auto lg:mx-0 mb-4">
-                  Foad Jalali is a dedicated Software Engineer with strong experience in backend development, specializing in PHP and Laravel. He also has hands-on familiarity with Python, and working knowledge of React and Next.js, allowing him to contribute effectively to full-stack projects.
-                </p>
-                <p className="text-white/80 text-base md:text-lg">
-                  He is always eager to take on new challenges to grow technically and professionally. With a collaborative mindset and strong communication skills, Foad excels in team settings and consistently contributes to shared goals through clean code and a problem-solving approach.
-                </p>
-                <div className="flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start pt-8">
-                  <Button
-                    onClick={() => scrollToSection("about")}
-                    className="px-5 py-3 bg-zinc-700 hover:bg-zinc-600 text-white rounded-lg"
-                  >
-                    About Me
-                  </Button>
-                  <Button
-                    onClick={() => scrollToSection("contact")}
-                    className="px-5 py-3 bg-neutral-950 hover:bg-zinc-700 text-white rounded-lg border border-white/10"
-                  >
-                    Contact Me
-                  </Button>
-                </div>
-              </div>
+      <section className="relative isolate scroll-mt-24 min-h-[calc(100svh-64px)] pt-24 flex items-center">
+        {/* Decorative background UNDER content */}
+        <BackgroundLines
+          className="pointer-events-none absolute inset-0 -z-10 opacity-40
+               [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]"
+        />
 
-              {/* Avatar */}
-              <div className="w-full lg:w-1/2 flex justify-center lg:justify-end" data-aos="fade-left">
-                <div className="relative size-56 sm:size-64 md:size-72 lg:size-80 rounded-full overflow-hidden border-4 border-sky-600/20 shadow-2xl shadow-emerald-900/20">
-                  <Image
-                    src="/avatar.png?height=320&width=320"
-                    alt="Profile Photo"
-                    fill
-                    sizes="(max-width: 1024px) 70vw, 32rem"
-                    className="object-cover"
-                    priority
-                  />
-                </div>
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-16">
+            {/* Text first (mobile), left (desktop) */}
+            <div className="w-full lg:w-1/2 text-center lg:text-left" data-aos="fade-right">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-3 sm:mb-4">
+                Hi, I'm <span className="text-sky-700">Foad Jalali</span>
+              </h1>
+
+              <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/80 mb-4 sm:mb-6">
+                Software Engineer
+              </h2>
+
+              <p className="text-white/80 text-sm sm:text-base md:text-lg leading-relaxed max-w-prose mx-auto lg:mx-0 mb-3 sm:mb-4">
+                Foad Jalali is a dedicated Software Engineer with strong experience in backend development,
+                specializing in PHP and Laravel. He also has hands-on familiarity with Python, and working knowledge
+                of React and Next.js, allowing him to contribute effectively to full-stack projects.
+              </p>
+
+              <p className="text-white/80 text-sm sm:text-base md:text-lg leading-relaxed">
+                He is always eager to take on new challenges to grow technically and professionally. With a collaborative
+                mindset and strong communication skills, Foad excels in team settings and consistently contributes to
+                shared goals through clean code and a problem-solving approach.
+              </p>
+
+              <div className="flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start pt-6 sm:pt-8">
+                <Button
+                  onClick={() => scrollToSection("about")}
+                  className="px-5 py-3 bg-zinc-700 hover:bg-zinc-600 text-white rounded-lg"
+                >
+                  About Me
+                </Button>
+                <Button
+                  onClick={() => scrollToSection("contact")}
+                  className="px-5 py-3 bg-neutral-950 hover:bg-zinc-700 text-white rounded-lg border border-white/10"
+                >
+                  Contact Me
+                </Button>
+              </div>
+            </div>
+
+            {/* Avatar second (mobile), right (desktop) */}
+            <div className="w-full lg:w-1/2 flex justify-center lg:justify-end" data-aos="fade-left">
+              <div className="relative size-44 sm:size-56 md:size-64 lg:size-80 rounded-full overflow-hidden border-4 border-sky-600/20 shadow-2xl shadow-emerald-900/20">
+                <Image
+                  src="/avatar.png?height=320&width=320"
+                  alt="Profile Photo"
+                  fill
+                  sizes="(max-width: 1024px) 70vw, 32rem"
+                  className="object-cover"
+                  priority
+                />
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Scroll hint */}
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce">
-            <button
-              onClick={() => scrollToSection("about")}
-              className="text-white/80 hover:text-emerald-400 transition-colors"
-              aria-label="Scroll to about"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
-              </svg>
-            </button>
-          </div>
-        </BackgroundLines>
+        {/* Scroll hint */}
+        <div className="pointer-events-none absolute bottom-[max(16px,env(safe-area-inset-bottom))] left-1/2 -translate-x-1/2 animate-bounce">
+          <button
+            onClick={() => scrollToSection("about")}
+            className="pointer-events-auto text-white/80 hover:text-emerald-400 transition-colors"
+            aria-label="Scroll to about"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+            </svg>
+          </button>
+        </div>
       </section>
+
 
       {/* About Section */}
       <section id="about" className="scroll-mt-24 py-16 sm:py-20 bg-zinc-600/10">

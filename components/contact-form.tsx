@@ -69,7 +69,7 @@ export default function ContactForm() {
               onChange={handleChange}
               required
               className="w-full px-4 py-2 bg-zinc-600/10 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-colors"
-              placeholder="John Doe"
+              placeholder="Foad Jalali"
             />
           </div>
           <div>

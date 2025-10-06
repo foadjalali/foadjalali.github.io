@@ -24,17 +24,26 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'yarn'
+          cache-dependency-path: yarn.lock
 
-      - name: Install deps (ci if lockfile, else install)
+      - name: Enable Corepack (Yarn)
+        run: corepack enable
+
+      # پشتیبانی خودکار از Yarn v1 و Berry (v2+)
+      - name: Install deps (Yarn)
         run: |
-          if [ -f package-lock.json ]; then
-            npm ci
+          v=$(yarn -v | cut -d. -f1)
+          if [ "$v" -ge 2 ]; then
+            # Yarn Berry
+            yarn install --immutable
           else
-            npm install
+            # Yarn classic
+            yarn install --frozen-lockfile
           fi
 
       - name: Build (static export)
-        run: npm run build
+        run: yarn build
 
       - name: SPA fallback (copy index.html -> 404.html)
         run: test -f out/index.html && cp -f out/index.html out/404.html || true

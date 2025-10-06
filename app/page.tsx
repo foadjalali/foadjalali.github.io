@@ -183,7 +183,7 @@ export default function Portfolio() {
       id: 6,
       title: "Saipa Customer Mobile Application",
       description: "A property listing website with advanced search and filtering options.",
-      image: "/placeholder.svg?height=300&width=400",
+      image: "/projects/fasa.png",
       tags: ["Next.js", "PostgreSQL", "Google Maps API", "Prisma"],
       demoLink: "#",
       githubLink: "#",
@@ -654,7 +654,7 @@ export default function Portfolio() {
                           rel="noopener noreferrer"
                           className="underline underline-offset-2 hover:text-white"
                         >
-                          rssp aces.com
+                          rsspaces.com
                         </a>
                       </div>
                       <ul className="list-disc pl-5 mt-2 space-y-1 text-white/85">

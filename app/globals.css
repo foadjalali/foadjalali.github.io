@@ -71,3 +71,22 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #4b5563;
 }
+/* === Print only #resume === */
+@media print {
+  /* همه چیز مخفی */
+  body * {
+    visibility: hidden !important;
+  }
+  /* فقط رزومه و داخلش دیده شود */
+  #resume, #resume * {
+    visibility: visible !important;
+  }
+  /* رزومه بیاد بالا-چپ و تمام عرض */
+  #resume {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+  }
+}
+
